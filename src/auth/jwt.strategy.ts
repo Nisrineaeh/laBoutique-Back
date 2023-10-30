@@ -19,17 +19,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
     async validate(payload: any): Promise<User> {
         console.log('validate');
-
-        //extraction du username du payload du JWT
         const { email } = payload;
-
-        // Recherche de l'utilisateur dans la base de données par son username
-        const user: User = await this.userRepository.findOneBy({ email });
-
-        //si user pas trouvé 
+        const user: User = await this.userRepository.findOne({where:{ email :email}});
         if (!user) throw new UnauthorizedException();
-
-        //si user valide 
         return user;
     }
 }

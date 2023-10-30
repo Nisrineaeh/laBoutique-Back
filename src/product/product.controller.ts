@@ -27,6 +27,12 @@ export class ProductController {
     return this.productService.findOne(id);
   }
 
+  @Get('user/:userId')
+  @UseGuards(AuthGuard('jwt'))
+  findByUser(@Param('userId') userId: number): Promise<Product[]> {
+    return this.productService.findByUser(userId);
+  }
+
   
 
   @Patch(':id')

@@ -55,4 +55,9 @@ export class ProductService {
   async remove(id: number): Promise<void> {
     await this.productRepository.delete(id);
   }
+
+  async findByUser(userId: number): Promise<Product[]> {
+    return this.productRepository.find({ where: { user_id: {id: userId}} });
+  }
+
 }
