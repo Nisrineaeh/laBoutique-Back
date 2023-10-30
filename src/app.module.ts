@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
+import { CategoryModule } from './category/category.module';
+import { Category } from './category/entities/category.entity';
 
 @Module({
   imports: [ConfigModule.forRoot({ envFilePath: [`.env`] }),
@@ -16,12 +18,13 @@ import { User } from './user/entities/user.entity';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [User],
+      entities: [User, Category],
       synchronize: false,
       logging: false,
     }),
     AuthModule,
-    UserModule,],
+    UserModule,
+    CategoryModule,],
   controllers: [AppController],
   providers: [AppService],
 })
