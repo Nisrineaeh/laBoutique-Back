@@ -8,6 +8,8 @@ import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
 import { CategoryModule } from './category/category.module';
 import { Category } from './category/entities/category.entity';
+import { ProductModule } from './product/product.module';
+import { Product } from './product/entities/product.entity';
 
 @Module({
   imports: [ConfigModule.forRoot({ envFilePath: [`.env`] }),
@@ -18,13 +20,14 @@ import { Category } from './category/entities/category.entity';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [User, Category],
+      entities: [User, Category, Product],
       synchronize: false,
       logging: false,
     }),
     AuthModule,
     UserModule,
-    CategoryModule,],
+    CategoryModule,
+    ProductModule,],
   controllers: [AppController],
   providers: [AppService],
 })
