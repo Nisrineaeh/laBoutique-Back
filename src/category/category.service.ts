@@ -15,7 +15,7 @@ export class CategoryService {
  async create(category: Category): Promise<Category> {
     return this.categoryRepository.save(category);
   }
-  
+
   async findAll(): Promise<Category[]> {
     return this.categoryRepository.find();
   }
@@ -31,7 +31,7 @@ export class CategoryService {
     return this.categoryRepository.findOne({ where: { id: id } });
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: number) {
     await this.categoryRepository.delete(id);
   }
 }
