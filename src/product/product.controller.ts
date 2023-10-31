@@ -16,7 +16,6 @@ export class ProductController {
   }
   
   @Get()
-  @UseGuards(AuthGuard('jwt'))
   findAll(): Promise<Product[]> {
     return this.productService.findAll();
   }
