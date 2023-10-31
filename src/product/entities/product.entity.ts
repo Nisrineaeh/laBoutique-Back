@@ -8,13 +8,13 @@ export class Product {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: 'varchar', length: 255})
     name: string;
 
-    @Column()
+    @Column({type: 'decimal', precision: 10, scale:2})
     price: number;
 
-    @Column()
+    @Column({type: 'int'})
     quantity: number;
 
     @ManyToOne(()=> User, (user)=> user.products, {eager: true})

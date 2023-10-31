@@ -7,16 +7,16 @@ export class User {
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column()
+    @Column({ type: 'varchar', length: 255 })
     name: string;
 
-    @Column()
+    @Column({ type: 'varchar', length: 255 })
     firstname: string;
 
     @Column({unique:true})
     email: string;
 
-    @Column()
+    @Column({ type: 'char', length: 60})
     password: string;
 
     @OneToMany(()=> Product, (product)=> product.user_id, {cascade: true})
