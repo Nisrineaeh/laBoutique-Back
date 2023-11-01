@@ -16,3 +16,6 @@ price decimal(10,2) not null,
 quantity int not null,
 user_id int references "user"(id) on delete cascade,
 category_id int references category(id) on delete cascade);
+
+alter table product
+drop column user_id;

@@ -19,6 +19,6 @@ export class User {
     @Column({ type: 'char', length: 60})
     password: string;
 
-    @OneToMany(()=> Product, (product)=> product.user_id, {cascade: true})
-    products: Product[];
+    // @OneToMany(()=> Product, (product)=> product.user_id, {cascade: true})
+    // products: Product[];
 }

@@ -24,7 +24,7 @@ export class ProductService {
     product.name = createProductDto.name;
     product.price = createProductDto.price;
     product.quantity = createProductDto.quantity;
-    product.user_id = createProductDto.user_id;
+    // product.user_id = createProductDto.user_id;
     product.category_id = createProductDto.category_id;
     console.log('PRODUCT !!!!!!!!!', product)
 
@@ -56,8 +56,8 @@ export class ProductService {
     await this.productRepository.delete(id);
   }
 
-  async findByUser(userId: number): Promise<Product[]> {
-    return this.productRepository.find({ where: { user_id: {id: userId}} });
-  }
+  // async findByUser(userId: number): Promise<Product[]> {
+  //   return this.productRepository.find({ where: { user_id: {id: userId}} });
+  // }
 
 }

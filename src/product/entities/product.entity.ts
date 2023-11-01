@@ -17,9 +17,9 @@ export class Product {
     @Column({type: 'int'})
     quantity: number;
 
-    @ManyToOne(()=> User, (user)=> user.products, {eager: true})
-    @JoinColumn({ name: "user_id" })
-    user_id: User;
+    // @ManyToOne(()=> User, (user)=> user.products, {eager: true})
+    // @JoinColumn({ name: "user_id" })
+    // user_id: User;
 
     @ManyToOne(()=> Category, (category)=> category.products, {eager: true})
     @JoinColumn({ name: "category_id" })
